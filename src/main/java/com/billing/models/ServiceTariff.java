@@ -25,14 +25,4 @@ public class ServiceTariff implements Serializable {
         fields.add("extra_internet");
         return fields;
     }
-//    public boolean equals(Object obj) {
-//        if (this == obj) return true;
-//        if (obj == null || getClass() != obj.getClass()) return false;
-//
-//        Specification that = (Specification) obj;
-//        if (!phone.equals(that.phone)) return false;
-//        if (!email.equals(that.phone)) return false;
-//        if (!address.equals(that.phone)) return false;
-//        return true;
-//    }
 }

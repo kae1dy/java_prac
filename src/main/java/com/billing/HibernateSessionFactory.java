@@ -19,7 +19,7 @@ public class HibernateSessionFactory {
                         .addAnnotatedClasses(
                                 Account.class,
                                 Client.class,
-                                Client2ServiceId.class,
+                                Client2Service.class,
                                 Organization.class,
                                 Service.class
                         )
