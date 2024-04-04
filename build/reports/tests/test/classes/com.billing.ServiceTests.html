@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ServiceTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ServiceTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.billing.html">com.billing</a> &gt; ServiceTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.037s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFindAll()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFindById()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testFindByName()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testService()</td>
+<td class="success">0.020s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>?[35m[Hibernate]?[0m 
+    ?[34minsert?[0m 
+    ?[34minto?[0m
+        services
+        (service_name, service_package, service_tariff) 
+    ?[34mvalues?[0m
+        (?, ?, ?)
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=?
+?[35m[Hibernate]?[0m 
+    ?[34minsert?[0m 
+    ?[34minto?[0m
+        services
+        (service_name, service_package, service_tariff) 
+    ?[34mvalues?[0m
+        (?, ?, ?)
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mupdate?[0m
+        services 
+    ?[34mset?[0m
+        service_name=?,
+        service_package=?,
+        service_tariff=? 
+    ?[34mwhere?[0m
+        service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mdelete?[0m 
+    ?[34mfrom?[0m
+        services 
+    ?[34mwhere?[0m
+        service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mdelete?[0m 
+    ?[34mfrom?[0m
+        services 
+    ?[34mwhere?[0m
+        service_id=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.6</a> at 4 апр. 2024 г., 16:23:59</p>
+</div>
+</div>
+</body>
+</html>

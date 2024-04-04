@@ -1,44 +1,41 @@
 package com.billing.dao;
 
+import com.billing.HibernateSessionFactory;
+import com.billing.models.Client2Service;
+import com.billing.models.Client2ServiceId;
+import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
-import com.billing.models.*;
-import com.billing.HibernateSessionFactory;
-import jakarta.persistence.TypedQuery;
-
-public class Client2ServiceDAO extends CommonDAO<Client2Service>{
+public class Client2ServiceDAO extends CommonDAO<Client2Service, Client2ServiceId>{
 
     public Client2ServiceDAO(){
         super(Client2Service.class);
     }
 
-    public List<Client> filter(Service service, Date begin, Date end, boolean credit) {
+    public List<Client2Service> filter(String service_name, Date begin, Date end, boolean credit) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             StringBuilder hql = new StringBuilder(
-                    "SELECT DISTINCT cl_serv.client FROM Client2Service cl_serv WHERE 1=1");
+                    "SELECT DISTINCT cl_serv FROM Client2Service cl_serv WHERE 1=1");
 
-            if (service != null) hql.append(" AND service = :service");
-            if (begin != null) hql.append(" AND contract_end >= :begin");
-            if (end != null) hql.append(" AND contract_begin <= :end");
+            if (service_name != null) hql.append(" AND cl_serv.service.name = :service_name");
+            if (begin != null) hql.append(" AND cl_serv.contract_begin >= :begin");
+            if (end != null) hql.append(" AND (cl_serv.contract_end is NULL OR cl_serv.contract_end <= :end)");
             if (credit) hql.append(" AND cl_serv.client.account.credit > 0");
 
-            TypedQuery<Client> query = session.createQuery(hql.toString(), Client.class);
+            TypedQuery<Client2Service> query = session.createQuery(hql.toString(), Client2Service.class);
 
-            if (service != null) query.setParameter("service", service);
+            if (service_name != null) query.setParameter("service_name", service_name);
             if (begin != null) query.setParameter("begin", begin);
             if (end != null) query.setParameter("end", begin);
 
-            List<Client> res = query.getResultList();
+            List<Client2Service> res = query.getResultList();
             t.commit();
             return res;
-        } catch (jakarta.persistence.NoResultException e) {
-            System.out.println("Error: filter client.");
-            return null;
         }
     }
 }

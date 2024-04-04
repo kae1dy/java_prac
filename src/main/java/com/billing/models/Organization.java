@@ -1,7 +1,9 @@
 package com.billing.models;
+
 import jakarta.persistence.*;
-import java.util.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "organizations")
@@ -12,13 +14,16 @@ import lombok.*;
 @AllArgsConstructor
 public class Organization {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "org_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "org_name")
     private String name;
 
     @Column(name = "org_inn")
     private String inn;
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "org")
+//    private List<Client> clients;
 }

@@ -1,15 +1,18 @@
 package com.billing.models;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Embeddable
 @AllArgsConstructor
+@NoArgsConstructor
 public class Client2ServiceId implements Serializable {
-    private long client_id;
-    private long service_id;
+    private int client_id;
+    private int service_id;
+
 }

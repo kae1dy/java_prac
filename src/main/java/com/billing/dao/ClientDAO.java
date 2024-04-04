@@ -1,18 +1,14 @@
 package com.billing.dao;
+
+import com.billing.HibernateSessionFactory;
+import com.billing.models.Client;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.sql.Date;
-import java.util.List;
-
-import com.billing.models.*;
-import com.billing.HibernateSessionFactory;
-import jakarta.persistence.TypedQuery;
-
-public class ClientDAO extends CommonDAO<Account>{
+public class ClientDAO extends CommonDAO<Client, Integer>{
 
     public ClientDAO(){
-        super(Account.class);
+        super(Client.class);
     }
 
 
@@ -25,8 +21,7 @@ public class ClientDAO extends CommonDAO<Account>{
                     .getSingleResult();
             t.commit();
             return b;
-        } catch (jakarta.persistence.NoResultException e){
-            System.out.println("Error: client " + name + " not found.");
+        } catch (jakarta.persistence.NoResultException e) {
             return null;
         }
     }

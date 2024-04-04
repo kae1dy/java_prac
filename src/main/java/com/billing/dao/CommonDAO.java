@@ -1,28 +1,34 @@
 package com.billing.dao;
 
+import com.billing.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import java.util.List;
-import java.sql.Date;
 
-
-import jakarta.persistence.TypedQuery;
-import com.billing.HibernateSessionFactory;
-
-public abstract class CommonDAO<T> {
+public abstract class CommonDAO<T, PrimaryKey> {
     private final Class<T> entity;
 
     public CommonDAO(Class<T> entity){
         this.entity = entity;
     }
 
-    public T findById(Long id){
-        return HibernateSessionFactory.getSessionFactory().getCurrentSession().get(entity, id);
+    public T findById(PrimaryKey id){
+        try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
+            Transaction t = session.beginTransaction();
+            T res = session.get(entity, id);
+            t.commit();
+            return res;
+        }
     }
 
     public List<T> findAll(){
-        Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession();
-        return session.createQuery("from " + entity.getSimpleName(), entity).getResultList();
+        try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
+            Transaction t = session.beginTransaction();
+            List<T> res = session.createQuery("from " + entity.getSimpleName(), entity).getResultList();
+            t.commit();
+            return res;
+        }
     }
 
     public void save(T obj){
@@ -32,8 +38,8 @@ public abstract class CommonDAO<T> {
                 session.persist(obj);
                 t.commit();
             } catch (Exception exp) {
-                System.out.println("Save Error: " + exp);
                 t.rollback();
+                throw exp;
             }
         }
     }
@@ -45,8 +51,8 @@ public abstract class CommonDAO<T> {
                 session.merge(obj);
                 t.commit();
             } catch (Exception exp) {
-                System.out.println("Update Error:" + exp);
                 t.rollback();
+                throw exp;
             }
         }
     }
@@ -58,16 +64,25 @@ public abstract class CommonDAO<T> {
                 session.remove(obj);
                 t.commit();
             } catch (Exception exp) {
-                System.out.println("Delete Error:  " + exp);
                 t.rollback();
+                throw exp;
             }
         }
     }
 
-    public void deleteById(Long id) {
-        Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession();
-        Transaction t = session.beginTransaction();
-        session.remove(findById(id));
-        t.commit();
+    public void deleteById(PrimaryKey id) {
+        T obj = findById(id);
+        if (obj != null) {
+            try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
+                Transaction t = session.beginTransaction();
+                try {
+                    session.remove(obj);
+                    t.commit();
+                } catch (Exception exp) {
+                    t.rollback();
+                    throw exp;
+                }
+            }
+        }
     }
 }

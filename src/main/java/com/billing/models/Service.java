@@ -1,9 +1,12 @@
 package com.billing.models;
+
 import jakarta.persistence.*;
-import java.util.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "services")
@@ -14,16 +17,17 @@ import org.hibernate.type.SqlTypes;
 @AllArgsConstructor
 public class Service {
 
+    public Service(String name) {
+        this.name = name;
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "service_name")
     private String name;
-
-    @ManyToMany(mappedBy = "ClientService", fetch = FetchType.EAGER)
-    private List<Client> ServiceClient;
 
     @Column(name = "service_package")
     @JdbcTypeCode(SqlTypes.JSON)
@@ -32,4 +36,16 @@ public class Service {
     @Column(name = "service_tariff")
     @JdbcTypeCode(SqlTypes.JSON)
     private ServiceTariff tariff;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Service that = (Service) o;
+
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(pack, that.pack) &&
+                Objects.equals(tariff, that.tariff);
+    }
 }

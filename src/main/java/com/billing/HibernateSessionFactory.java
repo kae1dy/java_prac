@@ -30,7 +30,6 @@ public class HibernateSessionFactory {
                 throw exp;
             }
         }
-
         return sessionFactory;
     }
 }

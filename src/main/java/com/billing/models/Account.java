@@ -1,10 +1,14 @@
 package com.billing.models;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import java.util.*;
 import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+
 import java.math.BigDecimal;
+//import java.sql.Date;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Table(name = "accounts")
@@ -15,16 +19,16 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Account {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "acc_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "acc_balance")
     private java.math.BigDecimal balance;
 
     @Column(name = "acc_history")
-    @JdbcTypeCode(SqlTypes.JSON)
-    private AccountHistory history;
+    @Convert(converter = HistoryConverter.class)
+    private Map<Date, BigDecimal> history;
 
     @Column(name = "acc_credit")
     private java.math.BigDecimal credit;

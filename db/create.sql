@@ -1,5 +1,5 @@
-DROP SCHEMA IF EXISTS billing CASCADE;
-CREATE SCHEMA billing;
+DROP SCHEMA IF EXISTS public CASCADE;
+CREATE SCHEMA public;
 
 -- Счета клиентов:
 -- Баланс
@@ -7,7 +7,7 @@ CREATE SCHEMA billing;
 -- Размер максимального кредита
 -- Сроки его погашения
 
-CREATE TABLE billing.accounts
+CREATE TABLE accounts
 (
     acc_id bigserial PRIMARY KEY,
 	acc_balance decimal DEFAULT 0,
@@ -20,7 +20,7 @@ CREATE TABLE billing.accounts
 -- Название
 -- 1-ая запись - "Физ. лицо"
 
-CREATE TABLE billing.organizations
+CREATE TABLE organizations
 (
 	org_id bigserial PRIMARY KEY,
 	org_name text NOT NULL,
@@ -28,20 +28,20 @@ CREATE TABLE billing.organizations
 );
 
 -- Клиенты:
--- Относится ли клиент к организации (если нет, то внешний ключ ведёт на 1-ую запись в таблице "billing.organization", где стоит "Физ. лицо")
+-- Относится ли клиент к организации (если нет, то внешний ключ ведёт на 1-ую запись в таблице "organization", где стоит "Физ. лицо")
 -- ФИО
 -- Информация о клиенте: телефон, email, адрес
 -- История услуг: услуги, в какое время оказывались
 -- Внешний ключ на счёт клиента
 
-CREATE TABLE billing.clients
+CREATE TABLE clients
 (
     client_id bigserial PRIMARY KEY,
-	client_org bigint DEFAULT 1 REFERENCES billing.organizations ON DELETE CASCADE,
+	client_org bigint DEFAULT 1 REFERENCES organizations ON DELETE CASCADE,
     client_name text NOT NULL,
 	client_info jsonb,
 	-- 1-to-1
-	acc_id bigint DEFAULT NULL UNIQUE REFERENCES billing.accounts ON DELETE SET NULL
+	acc_id bigint DEFAULT NULL UNIQUE REFERENCES accounts ON DELETE SET NULL
 );
 
 -- Услуги:
@@ -49,8 +49,8 @@ CREATE TABLE billing.clients
 -- Характеристики пакета
 -- Тарифный план
 
-CREATE TABLE billing.services 
-(   
+CREATE TABLE services
+(
 	service_id bigserial PRIMARY KEY,
     service_name text NOT NULL,
 	service_package jsonb,
@@ -58,10 +58,10 @@ CREATE TABLE billing.services
 );
 
 -- Many-to-Many
-CREATE TABLE billing.client_service
-(   
-    client_id bigint REFERENCES billing.clients ON DELETE CASCADE,
-    service_id bigint REFERENCES billing.services,
+CREATE TABLE client_service
+(
+    client_id bigint REFERENCES clients ON DELETE CASCADE,
+    service_id bigint REFERENCES services,
 	contract_num text NOT NULL,
 	contract_begin date NOT NULL,
 	contract_end date DEFAULT NULL CHECK(contract_begin <= contract_end),

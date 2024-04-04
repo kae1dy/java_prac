@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.billing.ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-04T13:23:58" hostname="MacBook-Air-Ila.local" time="0.037">
+  <properties/>
+  <testcase name="testFindAll()" classname="com.billing.ServiceTests" time="0.006"/>
+  <testcase name="testFindByName()" classname="com.billing.ServiceTests" time="0.006"/>
+  <testcase name="test()" classname="com.billing.ServiceTests" time="0.001"/>
+  <testcase name="testFindById()" classname="com.billing.ServiceTests" time="0.004"/>
+  <testcase name="testService()" classname="com.billing.ServiceTests" time="0.02"/>
+  <system-out><![CDATA[?[35m[Hibernate]?[0m 
+    ?[34minsert?[0m 
+    ?[34minto?[0m
+        services
+        (service_name, service_package, service_tariff) 
+    ?[34mvalues?[0m
+        (?, ?, ?)
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=?
+?[35m[Hibernate]?[0m 
+    ?[34minsert?[0m 
+    ?[34minto?[0m
+        services
+        (service_name, service_package, service_tariff) 
+    ?[34mvalues?[0m
+        (?, ?, ?)
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mupdate?[0m
+        services 
+    ?[34mset?[0m
+        service_name=?,
+        service_package=?,
+        service_tariff=? 
+    ?[34mwhere?[0m
+        service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mdelete?[0m 
+    ?[34mfrom?[0m
+        services 
+    ?[34mwhere?[0m
+        service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mdelete?[0m 
+    ?[34mfrom?[0m
+        services 
+    ?[34mwhere?[0m
+        service_id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

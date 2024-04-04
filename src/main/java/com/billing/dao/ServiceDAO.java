@@ -1,15 +1,13 @@
 package com.billing.dao;
+
+import com.billing.HibernateSessionFactory;
+import com.billing.models.Service;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import java.util.List;
 
-import com.billing.models.*;
-import com.billing.HibernateSessionFactory;
-import jakarta.persistence.TypedQuery;
-
-public class ServiceDAO extends CommonDAO<Service> {
-    public ServiceDAO(Class<Service> entity) {
-        super(entity);
+public class ServiceDAO extends CommonDAO<Service, Integer> {
+    public ServiceDAO(){
+        super(Service.class);
     }
 
     public Service findByName(String name){
@@ -21,8 +19,7 @@ public class ServiceDAO extends CommonDAO<Service> {
                     .getSingleResult();
             t.commit();
             return b;
-        } catch (jakarta.persistence.NoResultException e){
-            System.out.println("Error: service " + name + " not found.");
+        } catch (jakarta.persistence.NoResultException e) {
             return null;
         }
     }
