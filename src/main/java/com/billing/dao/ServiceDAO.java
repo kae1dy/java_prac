@@ -1,6 +1,6 @@
 package com.billing.dao;
 
-import com.billing.HibernateSessionFactory;
+import com.billing.utils.HibernateSessionFactory;
 import com.billing.models.Service;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

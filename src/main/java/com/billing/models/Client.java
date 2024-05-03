@@ -28,10 +28,10 @@ public class Client {
 
     @Column(name = "client_name")
     private String name;
-//
-//    @Column(name = "client_info")
-//    @JdbcTypeCode(SqlTypes.JSON)
-//    private ClientInfo info;
+
+    @Column(name = "client_info")
+    @JdbcTypeCode(SqlTypes.JSON)
+    private ClientInfo info;
 
 //    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    @JoinTable(name = "client_service",

@@ -23,7 +23,4 @@ public class Organization {
 
     @Column(name = "org_inn")
     private String inn;
-
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "org")
-//    private List<Client> clients;
 }

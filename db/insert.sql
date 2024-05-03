@@ -4,7 +4,9 @@ INSERT INTO organizations(org_name, org_inn) VALUES
 	('ОАО РЖД', '9777241723'),
 	('ПАО Газпром', '5474983662'),
 	('ООО Советник', '5287317415');
-	
+
+INSERT INTO users(user_login, user_password) VALUES
+    ('admin', 'admin');
 
 INSERT INTO services(service_name, service_package, service_tariff) VALUES
 	('Всё за 500', '{"min": 300, "sms": 500, "internet": 800, "max_members": 1}', '{"tariff": 500.0, "extra_min": 1.5, "extra_sms": 1.0, "extra_internet": 5.0}'),
@@ -14,7 +16,7 @@ INSERT INTO services(service_name, service_package, service_tariff) VALUES
 	('Только звонки', '{"min": 500, "sms": 100, "internet": 0, "max_members": 1}', '{"tariff": 150.0, "extra_min": 1.5, "extra_sms": 1.0, "extra_internet": 5.0}'),
 	('Только интернет', '{"min": 0, "sms": 100, "internet": 1000, "max_members": 1}', '{"tariff": 200.0, "extra_min": 1.5, "extra_sms": 1.0, "extra_internet": 5.0}'),
 	('Поминутный', '{"min": 0, "sms": 0, "internet": 0, "max_members": 1}', '{"tariff": 0.0, "extra_min": 0.5, "extra_sms": 1.0, "extra_internet": 1.5}');
-	
+
 	
 INSERT INTO accounts(acc_balance, acc_history, acc_credit, acc_terms) VALUES
 	(2557, '{"2024-01-21": 1575, "2024-01-22": -76, "2024-01-23": 958, "2024-01-24": -590, "2024-01-25": 690}', 300, '2024-03-26'),

@@ -1,4 +1,4 @@
-DROP SCHEMA IF EXISTS public CASCADE;
+-- DROP SCHEMA IF EXISTS public CASCADE;
 CREATE SCHEMA public;
 
 -- Счета клиентов:
@@ -6,6 +6,13 @@ CREATE SCHEMA public;
 -- История поступлений/списаний
 -- Размер максимального кредита
 -- Сроки его погашения
+
+CREATE TABLE users
+(
+    user_id bigserial PRIMARY KEY,
+    user_login text NOT NULL UNIQUE,
+    user_password text NOT NULL
+)
 
 CREATE TABLE accounts
 (

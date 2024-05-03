@@ -26,9 +26,9 @@ public class Account {
     @Column(name = "acc_balance")
     private java.math.BigDecimal balance;
 
-    @Column(name = "acc_history")
-    @Convert(converter = HistoryConverter.class)
-    private Map<Date, BigDecimal> history;
+//    @Column(name = "acc_history")
+//    @Convert(converter = HistoryConverter.class)
+//    private Map<Date, BigDecimal> history;
 
     @Column(name = "acc_credit")
     private java.math.BigDecimal credit;

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление клиентами</title>
+    <style>
+        body {
+            font-family: Montserrat, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .nav-buttons a {
+            margin-right: 10px;
+        }
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header a {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        main {
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            min-height: 600px;
+        }
+        .forms {
+            gap: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .form-control {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        .label-control {
+            display: block;
+        }
+
+        .buttons {
+            display: flex;
+            height: 50px;
+            align-items: stretch;
+            gap: 20px
+        }
+        .buttons button {
+            margin-top: 0 !important;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a th:href="@{/operations}">Операции</a>
+</header>
+<main>
+    <h1>Управление клиентами</h1>
+    <div>
+        <div>
+            <form action="/register_trans_save" method="get">
+                <div class="forms">
+                    <div class="form-name">
+                        <label class="label-control" for="serviceVAC">Название услуги</label>
+                        <input type="text" class="form-control" id="serviceVAC" name="serviceVAC">
+                    </div>
+                    <div class="form-min">
+                        <label class="label-control" for="minVAC">Звонки (мин.)</label>
+                        <input type="text" class="form-control" id="minVAC" name="minVAC">
+                    </div>
+                    <div class="form-sms">
+                        <label class="label-control" for="smsVAC">SMS (Кол-во)</label>
+                        <input type="text" class="form-control" id="smsVAC" name="smsVAC">
+                    </div>
+                    <div class="form-internet">
+                        <label class="label-control" for="internetVAC">Интернет (Мбайт)</label>
+                        <input type="text" class="form-control" id="internetVAC" name="internetVAC">
+                    </div>
+                    <div class="form-max">
+                        <label class="label-control" for="max_membersVAC">Макс. число пользователей</label>
+                        <input type="text" class="form-control" id="max_membersVAC" name="max_membersVAC">
+                    </div>
+                </div>
+                <div class="forms">
+                    <div class="form-tariff">
+                        <label class="label-control" for="tariffVAC">Цена тарифа</label>
+                        <input type="text" class="form-control" id="tariffVAC" name="tariffVAC">
+                    </div>
+                    <div class="form-extra-min">
+                        <label class="label-control" for="extra_minVAC">Цена минуты</label>
+                        <input type="text" class="form-control" id="extra_minVAC" name="extra_minVAC">
+                    </div>
+                    <div class="form-extra-sms">
+                        <label class="label-control" for="extra_smsVAC">Цена SMS</label>
+                        <input type="text" class="form-control" id="extra_smsVAC" name="extra_smsVAC">
+                    </div>
+                    <div class="form-extra-internet">
+                        <label class="label-control" for="extra_internetVAC">Цена интернета</label>
+                        <input type="text" class="form-control" id="extra_internetVAC" name="extra_internetVAC">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button-find btn btn-primary btn-block">Найти</button>
+                    <button type="submit" class="button-find btn btn-primary btn-block">Добавить</button>
+                    <button type="submit" class="button-find btn btn-primary btn-block">Удалить</button>
+                    <button type="submit" class="button-find btn btn-primary btn-block">Редактировать</button>
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</main>
+<footer>
+    <p>Contact:</p>
+    <p>kaeldy, Ilya Morozov</p>
+</footer>
+</body>
+</html>

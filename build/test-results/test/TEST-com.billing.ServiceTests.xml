@@ -1,12 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.billing.ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-04T13:23:58" hostname="MacBook-Air-Ila.local" time="0.037">
+<testsuite name="com.billing.ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-03T13:35:19" hostname="MacBook-Air-Ila" time="0.268">
   <properties/>
-  <testcase name="testFindAll()" classname="com.billing.ServiceTests" time="0.006"/>
-  <testcase name="testFindByName()" classname="com.billing.ServiceTests" time="0.006"/>
-  <testcase name="test()" classname="com.billing.ServiceTests" time="0.001"/>
-  <testcase name="testFindById()" classname="com.billing.ServiceTests" time="0.004"/>
-  <testcase name="testService()" classname="com.billing.ServiceTests" time="0.02"/>
-  <system-out><![CDATA[?[35m[Hibernate]?[0m 
+  <testcase name="testFindAll()" classname="com.billing.ServiceTests" time="0.185"/>
+  <testcase name="testFindByName()" classname="com.billing.ServiceTests" time="0.043"/>
+  <testcase name="test()" classname="com.billing.ServiceTests" time="0.0"/>
+  <testcase name="testFindById()" classname="com.billing.ServiceTests" time="0.006"/>
+  <testcase name="testService()" classname="com.billing.ServiceTests" time="0.031"/>
+  <system-out><![CDATA[16:35:18.101 [Test worker] INFO org.hibernate.Version -- HHH000412: Hibernate ORM core version 6.4.4.Final
+16:35:18.104 [Test worker] INFO org.hibernate.cfg.Environment -- HHH000205: Loaded properties from resource hibernate.properties: {hibernate.format_sql=true, hibernate.hbm2ddl.auto=update, hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect, hibernate.highlight_sql=true, hibernate.connection.username=postgres, hibernate.connection.url=jdbc:postgresql://localhost:5432/billing, hibernate.show_sql=true, hibernate.current_session_context_class=thread, hibernate.connection.driver_class=org.postgresql.Driver, hibernate.connection.password=****, hibernate.temp.use_jdbc_metadata_defaults=false}
+16:35:18.132 [Test worker] INFO org.hibernate.cache.internal.RegionFactoryInitiator -- HHH000026: Second-level cache disabled
+16:35:18.191 [Test worker] WARN org.hibernate.orm.deprecation -- HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+16:35:18.543 [Test worker] WARN org.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
+16:35:18.546 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
+16:35:18.546 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/billing]
+16:35:18.546 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001001: Connection properties: {password=****, user=postgres}
+16:35:18.546 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001003: Autocommit mode: false
+16:35:18.547 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001115: Connection pool size: 20 (min=1)
+16:35:19.164 [Test worker] INFO org.hibernate.orm.connections.access -- HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5c53c235] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m accounts 
+       ?[34malter?[0m ?[34mcolumn?[0m acc_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m accounts 
+       ?[34malter?[0m ?[34mcolumn?[0m acc_balance ?[34mset?[0m data type ?[34mnumeric?[0m(38,2)
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m accounts 
+       ?[34malter?[0m ?[34mcolumn?[0m acc_credit ?[34mset?[0m data type ?[34mnumeric?[0m(38,2)
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m accounts 
+       ?[34malter?[0m ?[34mcolumn?[0m acc_history ?[34mset?[0m data type ?[34mvarchar?[0m(255)
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m client_service 
+       ?[34malter?[0m ?[34mcolumn?[0m client_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m client_service 
+       ?[34malter?[0m ?[34mcolumn?[0m service_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m client_service 
+       ?[34malter?[0m ?[34mcolumn?[0m contract_begin ?[34mset?[0m data type ?[34mtimestamp?[0m(6)
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m client_service 
+       ?[34malter?[0m ?[34mcolumn?[0m contract_end ?[34mset?[0m data type ?[34mtimestamp?[0m(6)
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m clients 
+       ?[34malter?[0m ?[34mcolumn?[0m client_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m clients 
+       ?[34malter?[0m ?[34mcolumn?[0m acc_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m clients 
+       ?[34malter?[0m ?[34mcolumn?[0m client_org ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m organizations 
+       ?[34malter?[0m ?[34mcolumn?[0m org_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m organizations 
+       ?[34malter?[0m ?[34mcolumn?[0m org_inn ?[34mset?[0m data type ?[34mvarchar?[0m(255)
+?[35m[Hibernate]?[0m 
+    ?[34malter?[0m ?[34mtable?[0m ?[34mif?[0m ?[34mexists?[0m services 
+       ?[34malter?[0m ?[34mcolumn?[0m service_id ?[34mset?[0m data type ?[34minteger?[0m
+?[35m[Hibernate]?[0m 
     ?[34minsert?[0m 
     ?[34minto?[0m
         services

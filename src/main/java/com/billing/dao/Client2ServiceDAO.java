@@ -1,6 +1,6 @@
 package com.billing.dao;
 
-import com.billing.HibernateSessionFactory;
+import com.billing.utils.HibernateSessionFactory;
 import com.billing.models.Client2Service;
 import com.billing.models.Client2ServiceId;
 import jakarta.persistence.TypedQuery;

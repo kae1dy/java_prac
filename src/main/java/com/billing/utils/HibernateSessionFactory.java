@@ -1,4 +1,4 @@
-package com.billing;
+package com.billing.utils;
 
 import com.billing.models.*;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,12 @@ public class HibernateSessionFactory {
                                 Account.class,
                                 Client.class,
                                 Client2Service.class,
+                                User.class,
+//                                Client2ServiceId.class,
+//                                ServicePackage.class,
+//                                ServiceTariff.class,
                                 Organization.class,
+//                                ClientInfo.class,
                                 Service.class
                         )
                         .buildMetadata()

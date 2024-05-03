@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма входа</title>
+  <style>
+    body {
+      font-family: Montserrat, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 300px;
+      padding: 20px;
+      background-color: #ffffff;
+      margin: 100px auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], input[type="password"] {
+      padding: 10px;
+      width: 278px;
+      margin-bottom: 15px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Вход</h2>
+  <form th:action="@{/login}" method="get" class="form-group">
+    <input type="text" name="username" placeholder="Login" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Log in">
+  </form>
+</div>
+<div th:if="${isBadTry}">
+  Invalid username or/and password.</div>
+</body>
+</html>
