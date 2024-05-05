@@ -50,6 +50,9 @@
       padding: 20px;
       text-align: center;
     }
+    .oper-group {
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -58,7 +61,7 @@
 </header>
 <main>
   <h2>Перечень операций</h2>
-  <ul>
+  <ul class="oper-group">
     <li><a class="btn btn-outline-primary" th:href="@{/clients}">Списки клиентов</a></li>
     <li><a class="btn btn-outline-primary" th:href="@{/history}">История операций по счетам</a></li>
     <li><a class="btn btn-outline-success" th:href="@{/register_contract}">Регистрация договоров об оказании услуг</a></li>
@@ -68,8 +71,8 @@
   </ul>
 </main>
 <footer>
-  <p>Contact:</p>
-  <p>kaeldy, Ilya Morozov</p>
+  <p>Billing</p>
+  <p>Morozov Ilya 2024</p>
 </footer>
 </body>
 </html>

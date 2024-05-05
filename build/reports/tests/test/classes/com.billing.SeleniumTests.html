@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - SeleniumTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>SeleniumTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.billing.html">com.billing</a> &gt; SeleniumTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">13.731s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">clients()</td>
+<td class="success">1.515s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">example()</td>
+<td class="success">1.535s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">history()</td>
+<td class="success">1.523s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">mainPage()</td>
+<td class="success">1.048s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">manageClient()</td>
+<td class="success">1.726s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">manageService()</td>
+<td class="success">1.897s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">registerContract()</td>
+<td class="success">1.476s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">registerTrans()</td>
+<td class="success">3.011s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        cs1_0.client_id,
+        cs1_0.service_id,
+        cs1_0.contract_begin,
+        cs1_0.contract_end,
+        cs1_0.contract_num 
+    ?[34mfrom?[0m
+        client_service cs1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms,
+        c1_0.client_info,
+        c1_0.client_name,
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        accounts a1_0 
+            ?[34mon?[0m a1_0.acc_id=c1_0.acc_id 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        organizations o1_0 
+            ?[34mon?[0m o1_0.org_id=c1_0.client_org 
+    ?[34mwhere?[0m
+        c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        cs1_0.client_id,
+        cs1_0.service_id,
+        cs1_0.contract_begin,
+        cs1_0.contract_end,
+        cs1_0.contract_num 
+    ?[34mfrom?[0m
+        client_service cs1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms,
+        c1_0.client_info,
+        c1_0.client_name,
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        accounts a1_0 
+            ?[34mon?[0m a1_0.acc_id=c1_0.acc_id 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        organizations o1_0 
+            ?[34mon?[0m o1_0.org_id=c1_0.client_org 
+    ?[34mwhere?[0m
+        c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+Billing
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        cs1_0.client_id,
+        cs1_0.service_id,
+        cs1_0.contract_begin,
+        cs1_0.contract_end,
+        cs1_0.contract_num 
+    ?[34mfrom?[0m
+        client_service cs1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms,
+        c1_0.client_info,
+        c1_0.client_name,
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        accounts a1_0 
+            ?[34mon?[0m a1_0.acc_id=c1_0.acc_id 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        organizations o1_0 
+            ?[34mon?[0m o1_0.org_id=c1_0.client_org 
+    ?[34mwhere?[0m
+        c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.6</a> at 5 мая 2024 г., 20:15:06</p>
+</div>
+</div>
+</body>
+</html>

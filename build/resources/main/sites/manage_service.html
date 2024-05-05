@@ -97,10 +97,17 @@
             display: flex;
             height: 50px;
             align-items: stretch;
-            gap: 20px
+            gap: 20px;
+            justify-content: center;
         }
         .buttons button {
             margin-top: 0 !important;
+            width: 300px;
+        }
+        .error-mes {
+            margin-top: 20px;
+            color: red;
+            text-align: center;
         }
     </style>
 </head>
@@ -109,10 +116,10 @@
     <a th:href="@{/operations}">Операции</a>
 </header>
 <main>
-    <h1>Управление клиентами</h1>
+    <h1>Управление услугами</h1>
     <div>
         <div>
-            <form action="/register_trans_save" method="get">
+            <form action="/manage_service_process" method="get">
                 <div class="forms">
                     <div class="form-name">
                         <label class="label-control" for="serviceVAC">Название услуги</label>
@@ -120,53 +127,89 @@
                     </div>
                     <div class="form-min">
                         <label class="label-control" for="minVAC">Звонки (мин.)</label>
-                        <input type="text" class="form-control" id="minVAC" name="minVAC">
+                        <input type="number" min="0" step="1" class="form-control" id="minVAC" name="minVAC">
                     </div>
                     <div class="form-sms">
                         <label class="label-control" for="smsVAC">SMS (Кол-во)</label>
-                        <input type="text" class="form-control" id="smsVAC" name="smsVAC">
+                        <input type="number" min="0" step="1" class="form-control" id="smsVAC" name="smsVAC">
                     </div>
                     <div class="form-internet">
                         <label class="label-control" for="internetVAC">Интернет (Мбайт)</label>
-                        <input type="text" class="form-control" id="internetVAC" name="internetVAC">
+                        <input type="number" min="0" step="1" class="form-control" id="internetVAC" name="internetVAC">
                     </div>
                     <div class="form-max">
                         <label class="label-control" for="max_membersVAC">Макс. число пользователей</label>
-                        <input type="text" class="form-control" id="max_membersVAC" name="max_membersVAC">
+                        <input type="number" min="0" step="1" class="form-control" id="max_membersVAC" name="max_membersVAC">
                     </div>
                 </div>
                 <div class="forms">
                     <div class="form-tariff">
                         <label class="label-control" for="tariffVAC">Цена тарифа</label>
-                        <input type="text" class="form-control" id="tariffVAC" name="tariffVAC">
+                        <input type="number" class="form-control" id="tariffVAC" name="tariffVAC">
                     </div>
                     <div class="form-extra-min">
                         <label class="label-control" for="extra_minVAC">Цена минуты</label>
-                        <input type="text" class="form-control" id="extra_minVAC" name="extra_minVAC">
+                        <input type="number" class="form-control" id="extra_minVAC" name="extra_minVAC">
                     </div>
                     <div class="form-extra-sms">
                         <label class="label-control" for="extra_smsVAC">Цена SMS</label>
-                        <input type="text" class="form-control" id="extra_smsVAC" name="extra_smsVAC">
+                        <input type="number" class="form-control" id="extra_smsVAC" name="extra_smsVAC">
                     </div>
                     <div class="form-extra-internet">
                         <label class="label-control" for="extra_internetVAC">Цена интернета</label>
-                        <input type="text" class="form-control" id="extra_internetVAC" name="extra_internetVAC">
+                        <input type="number" class="form-control" id="extra_internetVAC" name="extra_internetVAC">
                     </div>
                 </div>
                 <div class="buttons">
-                    <button type="submit" class="button-find btn btn-primary btn-block">Найти</button>
-                    <button type="submit" class="button-find btn btn-primary btn-block">Удалить</button>
-                    <button type="submit" class="button-find btn btn-primary btn-block">Редактировать</button>
+                    <button id="find" type="submit" name="actionVAC" value="find" class="button-find btn btn-primary btn-block">Найти</button>
+                    <button id="create" type="submit" name="actionVAC" value="create" class="button-find btn btn-primary btn-block">Добавить</button>
+                    <button id="delete" type="submit" name="actionVAC" value="delete" class="button-find btn btn-primary btn-block">Удалить</button>
+                    <button id="edit" type="submit" name="actionVAC" value="edit" class="button-find btn btn-primary btn-block">Редактировать</button>
                 </div>
             </form>
         </div>
+        <div class="error-mes" th:if="${actionError}">
+            Incorrect input.
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Звонки (мин.)</th>
+                <th>SMS (Кол-во)</th>
+                <th>Интернет (Мбайт)</th>
+                <th>Макс. число пользователей</th>
+                <th>Цена тарифа</th>
+                <th>Цена минуты</th>
+                <th>Цена SMS</th>
+                <th>Цена интернета</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:if="${selectedServiceVAC}">
+                <tr>
+                    <td th:text="${selectedServiceVAC.getName()}"></td>
+                    <td th:text="${selectedServiceVAC.getPack().getMin()}"></td>
+                    <td th:text="${selectedServiceVAC.getPack().getSms()}"></td>
+                    <td th:text="${selectedServiceVAC.getPack().getInternet()}"></td>
+                    <td th:text="${selectedServiceVAC.getPack().getMax_members()}"></td>
+                    <td th:text="${selectedServiceVAC.getTariff().getTariff()}"></td>
+                    <td th:text="${selectedServiceVAC.getTariff().getExtra_min()}"></td>
+                    <td th:text="${selectedServiceVAC.getTariff().getExtra_sms()}"></td>
+                    <td th:text="${selectedServiceVAC.getTariff().getExtra_internet()}"></td>
+                </tr>
+            </div>
+            </th:block>
+            </tbody>
+        </table>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </div>
 </main>
 <footer>
-    <p>Contact:</p>
-    <p>kaeldy, Ilya Morozov</p>
+    <p>Billing</p>
+  <p>Morozov Ilya 2024</p>
 </footer>
 </body>
 </html>

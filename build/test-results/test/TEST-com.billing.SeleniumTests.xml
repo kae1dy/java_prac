@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.billing.SeleniumTests" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-05-05T17:14:52" hostname="MacBook-Air-Ila.local" time="13.733">
+  <properties/>
+  <testcase name="registerTrans()" classname="com.billing.SeleniumTests" time="3.011"/>
+  <testcase name="example()" classname="com.billing.SeleniumTests" time="1.535"/>
+  <testcase name="registerContract()" classname="com.billing.SeleniumTests" time="1.476"/>
+  <testcase name="manageClient()" classname="com.billing.SeleniumTests" time="1.726"/>
+  <testcase name="mainPage()" classname="com.billing.SeleniumTests" time="1.048"/>
+  <testcase name="clients()" classname="com.billing.SeleniumTests" time="1.515"/>
+  <testcase name="history()" classname="com.billing.SeleniumTests" time="1.523"/>
+  <testcase name="manageService()" classname="com.billing.SeleniumTests" time="1.897"/>
+  <system-out><![CDATA[?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        cs1_0.client_id,
+        cs1_0.service_id,
+        cs1_0.contract_begin,
+        cs1_0.contract_end,
+        cs1_0.contract_num 
+    ?[34mfrom?[0m
+        client_service cs1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms,
+        c1_0.client_info,
+        c1_0.client_name,
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        accounts a1_0 
+            ?[34mon?[0m a1_0.acc_id=c1_0.acc_id 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        organizations o1_0 
+            ?[34mon?[0m o1_0.org_id=c1_0.client_org 
+    ?[34mwhere?[0m
+        c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        cs1_0.client_id,
+        cs1_0.service_id,
+        cs1_0.contract_begin,
+        cs1_0.contract_end,
+        cs1_0.contract_num 
+    ?[34mfrom?[0m
+        client_service cs1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms,
+        c1_0.client_info,
+        c1_0.client_name,
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        accounts a1_0 
+            ?[34mon?[0m a1_0.acc_id=c1_0.acc_id 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        organizations o1_0 
+            ?[34mon?[0m o1_0.org_id=c1_0.client_org 
+    ?[34mwhere?[0m
+        c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+Billing
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        cs1_0.client_id,
+        cs1_0.service_id,
+        cs1_0.contract_begin,
+        cs1_0.contract_end,
+        cs1_0.contract_num 
+    ?[34mfrom?[0m
+        client_service cs1_0
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms,
+        c1_0.client_info,
+        c1_0.client_name,
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        accounts a1_0 
+            ?[34mon?[0m a1_0.acc_id=c1_0.acc_id 
+    ?[34mleft?[0m ?[34mjoin?[0m
+        organizations o1_0 
+            ?[34mon?[0m o1_0.org_id=c1_0.client_org 
+    ?[34mwhere?[0m
+        c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        c1_0.client_id,
+        c1_0.acc_id,
+        c1_0.client_info,
+        c1_0.client_name,
+        c1_0.client_org 
+    ?[34mfrom?[0m
+        clients c1_0 
+    ?[34mwhere?[0m
+        c1_0.client_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        a1_0.acc_id,
+        a1_0.acc_balance,
+        a1_0.acc_credit,
+        a1_0.acc_history,
+        a1_0.acc_terms 
+    ?[34mfrom?[0m
+        accounts a1_0 
+    ?[34mwhere?[0m
+        a1_0.acc_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        o1_0.org_id,
+        o1_0.org_inn,
+        o1_0.org_name 
+    ?[34mfrom?[0m
+        organizations o1_0 
+    ?[34mwhere?[0m
+        o1_0.org_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_name=? 
+    ?[34mfetch?[0m
+        first ? ?[34mrows?[0m ?[34monly?[0m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
