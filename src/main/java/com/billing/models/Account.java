@@ -3,6 +3,8 @@ package com.billing.models;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 //import java.sql.Date;
@@ -26,9 +28,10 @@ public class Account {
     @Column(name = "acc_balance")
     private java.math.BigDecimal balance;
 
-//    @Column(name = "acc_history")
-//    @Convert(converter = HistoryConverter.class)
-//    private Map<Date, BigDecimal> history;
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Convert(converter = HistoryConverter.class)
+    @Column(name = "acc_history")
+    private Map<Date, BigDecimal> history;
 
     @Column(name = "acc_credit")
     private java.math.BigDecimal credit;

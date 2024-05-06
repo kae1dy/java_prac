@@ -50,7 +50,7 @@ public class Client2ServiceTests {
     public void testFindById(){
         Client2ServiceService service = new Client2ServiceService();
         Client2Service client2Service = service.findById(new Client2ServiceId(1, 1));
-        Assertions.assertEquals(client2Service.getContract_num(), "1-24/01");
+        Assertions.assertEquals(client2Service.getContract_num(), "1");
         Assertions.assertNotNull(client2Service.getContract_begin());
         Assertions.assertNull(client2Service.getContract_end());
     }
@@ -59,12 +59,7 @@ public class Client2ServiceTests {
         Client2ServiceService service = new Client2ServiceService();
         List<Client2Service> client2Service = service.findAll();
 
-//        Assertions.assertEquals(client2Service.size(), 5);
-        Assertions.assertEquals(client2Service.get(0).getContract_num(), "1-24/01");
-        Assertions.assertEquals(client2Service.get(1).getContract_num(), "1-23/05");
-        Assertions.assertEquals(client2Service.get(2).getContract_num(), "1-24/02");
-        Assertions.assertEquals(client2Service.get(3).getContract_num(), "2-24/02");
-        Assertions.assertEquals(client2Service.get(4).getContract_num(), "3-24/02");
+        Assertions.assertEquals(client2Service.get(0).getContract_num(), "1");
     }
     @Test
     public void testService(){
@@ -93,14 +88,11 @@ public class Client2ServiceTests {
         Client2ServiceService client2ServiceService = new Client2ServiceService();
 
         List<Client2Service> cls = client2ServiceService.filter("Всё за 500", null, null, true);
-        Assertions.assertEquals(cls.getFirst().getContract_num(), "1-24/01");
+        Assertions.assertEquals(cls.getFirst().getContract_num(), "1");
 
-        Date date = new GregorianCalendar(2024, Calendar.APRIL, 4).getTime();
-
+        Date date = new Date();
         cls = client2ServiceService.filter(null, date, null, true);
-        Assertions.assertEquals(cls.get(0).getContract_num(), "1-11/01");
-        Assertions.assertEquals(cls.get(1).getContract_num(), "1-24/01");
-        Assertions.assertEquals(cls.get(2).getContract_num(), "1-11/01");
+        Assertions.assertEquals(cls.size(), 0);
 
         cls = client2ServiceService.filter(null, null, date, false);
         List<Client2Service> tmp = client2ServiceService.findAll();

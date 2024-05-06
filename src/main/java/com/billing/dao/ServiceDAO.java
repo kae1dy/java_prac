@@ -16,6 +16,7 @@ public class ServiceDAO extends CommonDAO<Service, Integer> {
             Service b = session
                     .createQuery("from Service where name = :name", Service.class)
                     .setParameter("name", name)
+                    .setMaxResults(1)
                     .getSingleResult();
             t.commit();
             return b;

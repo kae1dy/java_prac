@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,21 +34,19 @@ public class Client {
     @JdbcTypeCode(SqlTypes.JSON)
     private ClientInfo info;
 
-//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinTable(name = "client_service",
-//            joinColumns = @JoinColumn(name = "client_id", referencedColumnName = "client_id"),
-//            inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "service_id"))
-//    private List<Service> ClientService;
-
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "client")
-//    private List<Client2Service> ClientService;
-
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "acc_id", unique = true)
     private Account account;
 
     public Client(String name) {
         this.name = name;
+    }
+
+    public Client(@NonNull Organization org, @NonNull String name, ClientInfo info, Account acc) {
+        this.org = org;
+        this.name = name;
+        this.info = info;
+        this.account = acc;
     }
 
     @Override

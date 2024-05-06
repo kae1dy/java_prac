@@ -1,5 +1,8 @@
 -- DROP SCHEMA IF EXISTS public CASCADE;
+-- UPDATE pg_attribute SET atttypmod = 16192;
+
 CREATE SCHEMA public;
+
 
 -- Счета клиентов:
 -- Баланс

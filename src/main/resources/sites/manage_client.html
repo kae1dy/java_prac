@@ -86,7 +86,7 @@
             justify-content: center;
         }
         .form-control {
-            width: 300px;
+            width: 235px;
             margin-bottom: 20px;
         }
         .label-control {
@@ -104,6 +104,11 @@
             margin-top: 0 !important;
             width: 300px;
         }
+        .error-mes {
+            margin-top: 20px;
+            color: red;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -114,40 +119,72 @@
     <h1>Управление клиентами</h1>
     <div>
         <div>
-            <form action="/register_trans_save" method="get">
+            <form action="/manage_client_process" method="get">
                 <div class="forms">
                     <div class="form-name">
                         <label class="label-control" for="clientVAC">ФИО</label>
                         <input type="text" class="form-control" id="clientVAC" name="clientVAC">
                     </div>
                     <div class="form-service">
-                        <label class="label-control" for="organizationVAC">Организация</label>
-                        <input type="text" class="form-control" id="organizationVAC" name="organizationVAC">
+                        <label class="label-control" for="orgVAC">Организация</label>
+                        <input type="text" class="form-control" id="orgVAC" name="orgVAC">
                     </div>
                     <div class="form-phone">
                         <label class="label-control" for="phoneVAC">Моб. телефон</label>
-                        <input type="text" class="form-control" id="phoneVAC" name="phoneVAC">
+                        <input type="tel" class="form-control" id="phoneVAC" name="phoneVAC">
                     </div>
                     <div class="form-email">
                         <label class="label-control" for="emailVAC">Эл. почта</label>
-                        <input type="text" class="form-control" id="emailVAC" name="emailVAC">
+                        <input type="email" class="form-control" id="emailVAC" name="emailVAC">
+                    </div>
+                    <div class="form-address">
+                        <label class="label-control" for="addressVAC">Адрес</label>
+                        <input type="text" class="form-control" id="addressVAC" name="addressVAC">
                     </div>
                 </div>
                 <div class="buttons">
-                <button type="submit" class="button-find btn btn-primary btn-block">Найти</button>
-                <button type="submit" class="button-find btn btn-primary btn-block">Добавить</button>
-                <button type="submit" class="button-find btn btn-primary btn-block">Удалить</button>
-                <button type="submit" class="button-find btn btn-primary btn-block">Редактировать</button>
+                    <button id="find" type="submit" name="actionVAC" value="find" class="button-find btn btn-primary btn-block">Найти</button>
+                    <button id="create" type="submit" name="actionVAC" value="create" class="button-find btn btn-primary btn-block">Добавить</button>
+                    <button id="delete" type="submit" name="actionVAC" value="delete" class="button-find btn btn-primary btn-block">Удалить</button>
+                    <button id="edit" type="submit" name="actionVAC" value="edit" class="button-find btn btn-primary btn-block">Редактировать</button>
                 </div>
             </form>
         </div>
+        <div class="error-mes" th:if="${actionError}">
+            Incorrect input.
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Организация</th>
+                <th>Телефон</th>
+                <th>Email</th>
+                <th>Адрес</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:if="${selectedClientVAC}">
+                <tr>
+                    <td th:text="${selectedClientVAC.getName()}"></td>
+                    <td th:text="${selectedClientVAC.getOrg().getName()}"></td>
+                    <td th:text="${selectedClientVAC.getInfo().getPhone()}"></td>
+                    <td th:text="${selectedClientVAC.getInfo().getEmail()}"></td>
+                    <td th:text="${selectedClientVAC.getInfo().getAddress()}"></td>
+                </tr>
+            </div>
+            </th:block>
+            </tbody>
+        </table>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </div>
 </main>
 <footer>
-    <p>Contact:</p>
-    <p>kaeldy, Ilya Morozov</p>
+    <p>Billing</p>
+  <p>Morozov Ilya 2024</p>
 </footer>
 </body>
 </html>

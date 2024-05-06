@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма входа</title>
+  <title>Billing</title>
   <style>
     body {
       font-family: Montserrat, sans-serif;
@@ -18,40 +18,86 @@
       width: 300px;
       padding: 20px;
       background-color: #ffffff;
-      margin: 100px auto;
+      margin-top: 100px;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     input[type="text"], input[type="password"] {
       padding: 10px;
-      width: 278px;
+      width: 100%;
       margin-bottom: 15px;
       margin-right: 10px;
       border: 1px solid #ccc;
       border-radius: 3px;
+      display: block;
     }
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: #ffffff;
+    .error-mes {
+      margin-top: 20px;
+      color: red;
+      text-align: center;
+    }
+
+    body {
+      font-family: Montserrat, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: black;
+      color: black;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    main {
+      padding: 40px;
+      min-height: 600px;
+    }
+    header a {
+      background-color: black;
+      color: black;
       border: none;
-      border-radius: 3px;
+      padding: 0 20px;
       cursor: pointer;
+      font-size: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    footer {
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-
+<header>
+  <a class="label-header">Операции</a>
+</header>
+<main>
 <div class="container">
   <h2>Вход</h2>
   <form th:action="@{/login}" method="get" class="form-group">
     <input type="text" name="username" placeholder="Login" required>
     <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Log in">
+    <button type="submit" class="button-find btn btn-primary btn-block">Войти</button>
   </form>
 </div>
-<div th:if="${isBadTry}">
+<div class="error-mes" th:if="${isBadTry}">
   Invalid username or/and password.</div>
+</main>
+<footer>
+  <p>Billing</p>
+  <p>Morozov Ilya 2024</p>
+</footer>
 </body>
 </html>

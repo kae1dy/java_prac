@@ -18,6 +18,7 @@ public class ClientDAO extends CommonDAO<Client, Integer>{
             Client b = session
                     .createQuery("from Client where name = :name", Client.class)
                     .setParameter("name", name)
+                    .setMaxResults(1)
                     .getSingleResult();
             t.commit();
             return b;

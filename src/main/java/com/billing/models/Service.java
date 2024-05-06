@@ -37,6 +37,12 @@ public class Service {
     @JdbcTypeCode(SqlTypes.JSON)
     private ServiceTariff tariff;
 
+    public Service(String name, ServicePackage pack, ServiceTariff tariff) {
+        this.name = name;
+        this.pack = pack;
+        this.tariff = tariff;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

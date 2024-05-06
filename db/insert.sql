@@ -33,9 +33,9 @@ INSERT INTO clients(client_org, client_name, client_info, acc_id) VALUES
 	(5, 'Артамонова Юлия Максимовна', '{"phone": "89021417355", "email": "yulik@mail.ru", "address": "Ульяновск, ул. Промышленная, д. 4"}', 5);
 	
 	
-INSERT INTO client_service(client_id, service_id, contract_num, contract_begin) VALUES
-	(1, 1, '1-24/01', '2024-01-21'),
-	(2, 2, '1-23/05', '2023-05-23'),
-	(3, 3, '1-24/02', '2024-02-10'),
-	(4, 4, '2-24/02', '2024-02-05'),
-	(5, 5, '3-24/02', '2024-02-11');
+-- INSERT INTO client_service(client_id, service_id, contract_num, contract_begin) VALUES
+-- 	(1, 1, '1-24/01', '2024-01-21'),
+-- 	(2, 2, '1-23/05', '2023-05-23'),
+-- 	(3, 3, '1-24/02', '2024-02-10'),
+-- 	(4, 4, '2-24/02', '2024-02-05'),
+-- 	(5, 5, '3-24/02', '2024-02-11');
