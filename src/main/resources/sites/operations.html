@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Операции</title>
-  <style>
-    body {
-      font-family: Montserrat, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: black;
-      color: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      margin: 0;
-    }
-    header a {
-      background-color: black;
-      color: white;
-      border: none;
-      padding: 0 20px;
-      cursor: pointer;
-      font-size: 20px;
-    }
-    main {
-      padding: 40px;
-      min-height: 600px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    footer {
-      background-color: #f4f4f4;
-      padding: 20px;
-      text-align: center;
-    }
-    .oper-group {
-      margin-top: 20px;
-    }
-  </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Операции</title>
+    <style>
+        body {
+            font-family: Montserrat, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header a {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        main {
+            padding: 40px;
+            min-height: 600px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .oper-group {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 <header>
-  <a th:href="@{/operations}">Операции</a>
+    <a th:href="@{/operations}">Операции</a>
 </header>
 <main>
-  <h2>Перечень операций</h2>
-  <ul class="oper-group">
-    <li><a class="btn btn-outline-primary" th:href="@{/clients}">Списки клиентов</a></li>
-    <li><a class="btn btn-outline-primary" th:href="@{/history}">История операций по счетам</a></li>
-    <li><a class="btn btn-outline-success" th:href="@{/register_contract}">Регистрация договоров об оказании услуг</a></li>
-    <li><a class="btn btn-outline-success" th:href="@{/register_trans}">Регистрация поступлений/списаний</a></li>
-    <li><a class="btn btn-outline-warning" th:href="@{/manage_client}">Управление клиентами</a></li>
-    <li><a class="btn btn-outline-warning" th:href="@{/manage_service}">Управление услугами</a></li>
-  </ul>
+    <h2>Перечень операций</h2>
+    <ul class="oper-group">
+        <li><a class="btn btn-outline-primary" th:href="@{/clients}">Списки клиентов</a></li>
+        <li><a class="btn btn-outline-primary" th:href="@{/history}">История операций по счетам</a></li>
+        <li><a class="btn btn-outline-success" th:href="@{/register_contract}">Регистрация договоров об оказании
+            услуг</a></li>
+        <li><a class="btn btn-outline-success" th:href="@{/register_trans}">Регистрация поступлений/списаний</a></li>
+        <li><a class="btn btn-outline-warning" th:href="@{/manage_client}">Управление клиентами</a></li>
+        <li><a class="btn btn-outline-warning" th:href="@{/manage_service}">Управление услугами</a></li>
+    </ul>
 </main>
 <footer>
-  <p>Billing</p>
-  <p>Morozov Ilya 2024</p>
+    <p>Billing</p>
+    <p>Morozov Ilya 2024</p>
 </footer>
 </body>
 </html>

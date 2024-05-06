@@ -11,27 +11,28 @@ import java.util.List;
 
 public class ClientTests {
     private static Client client;
+
     @BeforeAll
-    public static void save(){
+    public static void save() {
         client = new Client("Морозов Илья Федорович");
         ClientService clientService = new ClientService();
         clientService.save(client);
     }
 
     @AfterAll
-    public static void delete(){
+    public static void delete() {
         ClientService clientService = new ClientService();
         clientService.delete(client);
     }
 
     @Test
-    public void test(){
+    public void test() {
         Client cl = new Client("Test");
         Assertions.assertEquals(cl.getName(), "Test");
     }
 
     @Test
-    public void testFindById(){
+    public void testFindById() {
         ClientService clientService = new ClientService();
         Client client = clientService.findById(1);
         Assertions.assertEquals(client.getName(), "Абрамов Михаил Андреевич");
@@ -39,7 +40,7 @@ public class ClientTests {
     }
 
     @Test
-    public void testFindByName(){
+    public void testFindByName() {
         ClientService clientService = new ClientService();
         Client client = clientService.findByName("Артамонова Юлия Максимовна");
         Assertions.assertEquals(client.getName(), "Артамонова Юлия Максимовна");
@@ -47,7 +48,7 @@ public class ClientTests {
     }
 
     @Test
-    public void testFindAll(){
+    public void testFindAll() {
         ClientService clientService = new ClientService();
         List<Client> client = clientService.findAll();
 
@@ -58,11 +59,12 @@ public class ClientTests {
         Assertions.assertEquals(client.get(3).getName(), "Митрофанов Алексей Антонович");
         Assertions.assertEquals(client.get(4).getName(), "Артамонова Юлия Максимовна");
     }
+
     @Test
-    public void testService(){
+    public void testService() {
         ClientService clientService = new ClientService();
         Client s = clientService.findByName("Test");
-        if (s != null){
+        if (s != null) {
             clientService.delete(s);
         }
 

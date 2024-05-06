@@ -2,17 +2,16 @@ package com.billing.dao;
 
 import com.billing.models.User;
 import com.billing.utils.HibernateSessionFactory;
-import com.billing.models.Client;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class UserDAO extends CommonDAO<User, Integer>{
+public class UserDAO extends CommonDAO<User, Integer> {
 
-    public UserDAO(){
+    public UserDAO() {
         super(User.class);
     }
 
-    public User checkValid(String login, String password){
+    public User checkValid(String login, String password) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             User b = session

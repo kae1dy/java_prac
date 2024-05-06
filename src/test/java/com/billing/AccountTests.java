@@ -5,12 +5,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 public class AccountTests {
     @Test
-    public void test(){
+    public void test() {
         Account acc = new Account();
 
         acc.setId(1);

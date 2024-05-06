@@ -1,8 +1,8 @@
 package com.billing.dao;
 
-import com.billing.utils.HibernateSessionFactory;
 import com.billing.models.Client2Service;
 import com.billing.models.Client2ServiceId;
+import com.billing.utils.HibernateSessionFactory;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,9 +10,9 @@ import org.hibernate.Transaction;
 import java.util.Date;
 import java.util.List;
 
-public class Client2ServiceDAO extends CommonDAO<Client2Service, Client2ServiceId>{
+public class Client2ServiceDAO extends CommonDAO<Client2Service, Client2ServiceId> {
 
-    public Client2ServiceDAO(){
+    public Client2ServiceDAO() {
         super(Client2Service.class);
     }
 

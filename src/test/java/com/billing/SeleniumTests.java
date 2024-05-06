@@ -1,5 +1,8 @@
 package com.billing;
 
+import com.billing.services.Client2ServiceService;
+import com.billing.services.ClientService;
+import com.billing.services.ServiceService;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 import java.util.List;
-
-import com.billing.services.*;
-import com.billing.models.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,7 +40,7 @@ public class SeleniumTests {
     }
 
     @Test
-    public void mainPage(){
+    public void mainPage() {
         WebDriver driver = new ChromeDriver();
         driver.get("http://localhost:8080/");
         String title = driver.getTitle();
@@ -50,7 +50,7 @@ public class SeleniumTests {
     }
 
     @Test
-    public void clients(){
+    public void clients() {
 
         WebDriver driver = new ChromeDriver();
         login(driver);
@@ -66,7 +66,7 @@ public class SeleniumTests {
     }
 
     @Test
-    public void history(){
+    public void history() {
 
         WebDriver driver = new ChromeDriver();
         login(driver);
@@ -83,7 +83,7 @@ public class SeleniumTests {
         driver.quit();
     }
 
-    private void login(WebDriver driver){
+    private void login(WebDriver driver) {
         driver.get("http://localhost:8080/index");
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("admin");
@@ -91,7 +91,7 @@ public class SeleniumTests {
     }
 
     @Test
-    public void registerContract(){
+    public void registerContract() {
 
         WebDriver driver = new ChromeDriver();
         login(driver);
@@ -108,8 +108,9 @@ public class SeleniumTests {
         assertEquals(css.findAll().size(), before + 1);
         driver.quit();
     }
+
     @Test
-    public void registerTrans(){
+    public void registerTrans() {
 
         WebDriver driver = new ChromeDriver();
         login(driver);
@@ -122,12 +123,12 @@ public class SeleniumTests {
         driver.findElement(By.name("amountVAC")).sendKeys("1000");
         driver.findElement(By.cssSelector("button")).click();
 
-        assertEquals(cs.findByName("Абрамов Михаил Андреевич").getAccount().getHistory().size(),before + 1);
+        assertEquals(cs.findByName("Абрамов Михаил Андреевич").getAccount().getHistory().size(), before + 1);
         driver.quit();
     }
 
     @Test
-    public void manageClient(){
+    public void manageClient() {
 
         WebDriver driver = new ChromeDriver();
         login(driver);
@@ -164,7 +165,7 @@ public class SeleniumTests {
     }
 
     @Test
-    public void manageService(){
+    public void manageService() {
 
         WebDriver driver = new ChromeDriver();
         login(driver);

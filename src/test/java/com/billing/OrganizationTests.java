@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class OrganizationTests {
     @Test
-    public void test(){
+    public void test() {
         Organization org = new Organization();
         org.setId(1);
         org.setName("ОАО СБЕРБАНК");

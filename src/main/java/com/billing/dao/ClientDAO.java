@@ -1,18 +1,18 @@
 package com.billing.dao;
 
-import com.billing.utils.HibernateSessionFactory;
 import com.billing.models.Client;
+import com.billing.utils.HibernateSessionFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class ClientDAO extends CommonDAO<Client, Integer>{
+public class ClientDAO extends CommonDAO<Client, Integer> {
 
-    public ClientDAO(){
+    public ClientDAO() {
         super(Client.class);
     }
 
 
-    public Client findByName(String name){
+    public Client findByName(String name) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             Client b = session

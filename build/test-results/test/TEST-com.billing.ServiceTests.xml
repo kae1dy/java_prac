@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.billing.ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-05T17:15:06" hostname="MacBook-Air-Ila.local" time="0.026">
+<testsuite name="com.billing.ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-06T13:41:10" hostname="MacBook-Air-Ila.local" time="0.03">
   <properties/>
-  <testcase name="testFindAll()" classname="com.billing.ServiceTests" time="0.004"/>
-  <testcase name="testFindByName()" classname="com.billing.ServiceTests" time="0.002"/>
+  <testcase name="testFindAll()" classname="com.billing.ServiceTests" time="0.003"/>
+  <testcase name="testFindByName()" classname="com.billing.ServiceTests" time="0.006"/>
   <testcase name="test()" classname="com.billing.ServiceTests" time="0.0"/>
-  <testcase name="testFindById()" classname="com.billing.ServiceTests" time="0.003"/>
-  <testcase name="testService()" classname="com.billing.ServiceTests" time="0.016"/>
+  <testcase name="testFindById()" classname="com.billing.ServiceTests" time="0.005"/>
+  <testcase name="testService()" classname="com.billing.ServiceTests" time="0.015"/>
   <system-out><![CDATA[?[35m[Hibernate]?[0m 
     ?[34minsert?[0m 
     ?[34minto?[0m

@@ -8,7 +8,6 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 import java.io.IOException;
-//import java.sql.Date;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,12 +25,14 @@ public class HistoryConverter implements AttributeConverter<Map<Date, java.math.
             throw new IllegalArgumentException("Error converting Map to JSON string", ex);
         }
     }
+
     @Override
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     public Map<Date, java.math.BigDecimal> convertToEntityAttribute(String jsonb) {
         try {
 
-            return objectMapper.readValue(jsonb, new TypeReference<HashMap<Date, java.math.BigDecimal>>() {});
+            return objectMapper.readValue(jsonb, new TypeReference<HashMap<Date, java.math.BigDecimal>>() {
+            });
         } catch (IOException ex) {
             throw new IllegalArgumentException("Error converting JSON string to Map", ex);
         }

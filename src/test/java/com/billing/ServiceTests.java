@@ -11,8 +11,9 @@ import java.util.List;
 
 public class ServiceTests {
     private static Service service;
+
     @BeforeAll
-    public static void save(){
+    public static void save() {
         service = new Service();
         service.setName("Домашнее ТВ");
         ServiceService serviceService = new ServiceService();
@@ -20,19 +21,19 @@ public class ServiceTests {
     }
 
     @AfterAll
-    public static void delete(){
+    public static void delete() {
         ServiceService serviceService = new ServiceService();
         serviceService.delete(service);
     }
 
     @Test
-    public void test(){
+    public void test() {
         Service m = new Service("Test");
         Assertions.assertEquals(m.getName(), "Test");
     }
 
     @Test
-    public void testFindById(){
+    public void testFindById() {
         ServiceService serviceService = new ServiceService();
         Service service = serviceService.findById(1);
         Assertions.assertEquals(service.getName(), "Всё за 500");
@@ -40,7 +41,7 @@ public class ServiceTests {
     }
 
     @Test
-    public void testFindByName(){
+    public void testFindByName() {
         ServiceService serviceService = new ServiceService();
         Service service = serviceService.findByName("Семья");
         Assertions.assertEquals(service.getName(), "Семья");
@@ -48,7 +49,7 @@ public class ServiceTests {
     }
 
     @Test
-    public void testFindAll(){
+    public void testFindAll() {
         ServiceService serviceService = new ServiceService();
         List<Service> service = serviceService.findAll();
 
@@ -61,11 +62,12 @@ public class ServiceTests {
         Assertions.assertEquals(service.get(5).getName(), "Только интернет");
         Assertions.assertEquals(service.get(6).getName(), "Поминутный");
     }
+
     @Test
-    public void testService(){
+    public void testService() {
         ServiceService serviceService = new ServiceService();
         Service s = serviceService.findByName("Test4");
-        if (s != null){
+        if (s != null) {
             serviceService.delete(s);
         }
 

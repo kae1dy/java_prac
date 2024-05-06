@@ -1,14 +1,7 @@
 package com.billing.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.math.BigDecimal;
-//import java.sql.Date;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Entity
 @Table(name = "users")

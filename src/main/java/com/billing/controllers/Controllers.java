@@ -1,10 +1,11 @@
 package com.billing.controllers;
+
 import com.billing.models.*;
+import com.billing.services.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.billing.services.*;
-import org.springframework.stereotype.Controller;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -18,8 +19,8 @@ public class Controllers {
     ServiceService ss = new ServiceService();
     AccountService as = new AccountService();
     OrganizationService os = new OrganizationService();
-
     UserService us = new UserService();
+
     @GetMapping("/index")
     public String index() {
         return "index";
@@ -37,6 +38,7 @@ public class Controllers {
             return "redirect:/operations";
         }
     }
+
     @GetMapping("/operations")
     public String operations() {
         return "operations";
@@ -49,11 +51,11 @@ public class Controllers {
     }
 
     @GetMapping("/clients_filter")
-    public String ClientsList(@RequestParam(value="serviceVAC", required=false) String service,
-                                @RequestParam(value="beginDateVAC", required=false) String begin,
-                                @RequestParam(value="endDateVAC", required=false) String end,
-                                @RequestParam(value="creditVAC", required = false) String credit,
-                                Model model) {
+    public String ClientsList(@RequestParam(value = "serviceVAC", required = false) String service,
+                              @RequestParam(value = "beginDateVAC", required = false) String begin,
+                              @RequestParam(value = "endDateVAC", required = false) String end,
+                              @RequestParam(value = "creditVAC", required = false) String credit,
+                              Model model) {
 
         model.addAttribute("selectedServiceVAC", service);
         model.addAttribute("beginDateVAC", begin);
@@ -80,16 +82,16 @@ public class Controllers {
         model.addAttribute("clientServices", css.filter(serviceName, beginDate, endDate, creditFlag));
         return "clients";
     }
-//    @GetMapping(value = {"/clients_filter"})
+
     @GetMapping("/register_contract")
     public String registerContract() {
         return "register_contract";
     }
 
     @GetMapping("/register_contract_save")
-    public String registerContractSave(@RequestParam(value="clientVAC") String clientName,
-                                       @RequestParam(value="serviceVAC") String serviceName,
-                                       @RequestParam(value="contractVAC") String contract,
+    public String registerContractSave(@RequestParam(value = "clientVAC") String clientName,
+                                       @RequestParam(value = "serviceVAC") String serviceName,
+                                       @RequestParam(value = "contractVAC") String contract,
                                        Model model) {
         model.addAttribute("selectedClientVAC", clientName);
         model.addAttribute("selectedServiceVAC", serviceName);
@@ -103,7 +105,6 @@ public class Controllers {
         } else {
             Client2Service client2Service = new Client2Service(contract, client, service, new java.util.Date(), null);
             try {
-//                System.out.println(new java.util.Date());
                 css.save(client2Service);
                 model.addAttribute("findError", false);
             } catch (Exception e) {
@@ -119,8 +120,8 @@ public class Controllers {
     }
 
     @GetMapping("/register_trans_save")
-    public String registerContractSave(@RequestParam(value="clientVAC") String clientName,
-                                       @RequestParam(value="amountVAC") String amount,
+    public String registerContractSave(@RequestParam(value = "clientVAC") String clientName,
+                                       @RequestParam(value = "amountVAC") String amount,
                                        Model model) {
 
         model.addAttribute("selectedClientVAC", clientName);
@@ -148,9 +149,9 @@ public class Controllers {
     }
 
     @GetMapping("/history_filter")
-    public String historyFilter(@RequestParam(value="clientVAC") String clientName,
-                                @RequestParam(value="beginDateVAC", required=false) String begin,
-                                @RequestParam(value="endDateVAC", required=false) String end,
+    public String historyFilter(@RequestParam(value = "clientVAC") String clientName,
+                                @RequestParam(value = "beginDateVAC", required = false) String begin,
+                                @RequestParam(value = "endDateVAC", required = false) String end,
                                 Model model) {
 
         model.addAttribute("selectedClientVAC", clientName);
@@ -194,12 +195,12 @@ public class Controllers {
     }
 
     @GetMapping("/manage_client_process")
-    public String manageClientProcess(@RequestParam(value="clientVAC") String clientName,
-                                      @RequestParam(value="orgVAC", required = false) String organizationName,
-                                      @RequestParam(value="phoneVAC", required = false) String phone,
-                                      @RequestParam(value="emailVAC", required = false) String email,
-                                      @RequestParam(value="addressVAC", required = false) String address,
-                                      @RequestParam(value="actionVAC") String action,
+    public String manageClientProcess(@RequestParam(value = "clientVAC") String clientName,
+                                      @RequestParam(value = "orgVAC", required = false) String organizationName,
+                                      @RequestParam(value = "phoneVAC", required = false) String phone,
+                                      @RequestParam(value = "emailVAC", required = false) String email,
+                                      @RequestParam(value = "addressVAC", required = false) String address,
+                                      @RequestParam(value = "actionVAC") String action,
                                       Model model) {
         model.addAttribute("actionError", false);
         switch (action) {
@@ -255,17 +256,17 @@ public class Controllers {
     }
 
     @GetMapping("/manage_service_process")
-    public String manageServiceProcess(@RequestParam(value="serviceVAC") String serviceName,
-                                      @RequestParam(value="minVAC", required = false) String min,
-                                      @RequestParam(value="smsVAC", required = false) String sms,
-                                      @RequestParam(value="internetVAC", required = false) String internet,
-                                      @RequestParam(value="max_membersVAC", required = false) String maxMembers,
-                                      @RequestParam(value="tariffVAC", required = false) String tariff,
-                                      @RequestParam(value="extra_minVAC", required = false) String extraMin,
-                                      @RequestParam(value="extra_smsVAC", required = false) String extraSms,
-                                      @RequestParam(value="extra_internetVAC", required = false) String extraInternet,
-                                      @RequestParam(value="actionVAC") String action,
-                                      Model model) {
+    public String manageServiceProcess(@RequestParam(value = "serviceVAC") String serviceName,
+                                       @RequestParam(value = "minVAC", required = false) String min,
+                                       @RequestParam(value = "smsVAC", required = false) String sms,
+                                       @RequestParam(value = "internetVAC", required = false) String internet,
+                                       @RequestParam(value = "max_membersVAC", required = false) String maxMembers,
+                                       @RequestParam(value = "tariffVAC", required = false) String tariff,
+                                       @RequestParam(value = "extra_minVAC", required = false) String extraMin,
+                                       @RequestParam(value = "extra_smsVAC", required = false) String extraSms,
+                                       @RequestParam(value = "extra_internetVAC", required = false) String extraInternet,
+                                       @RequestParam(value = "actionVAC") String action,
+                                       Model model) {
         model.addAttribute("actionError", false);
         switch (action) {
             case "find" -> {

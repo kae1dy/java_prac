@@ -2,16 +2,15 @@ package com.billing.dao;
 
 import com.billing.models.Organization;
 import com.billing.utils.HibernateSessionFactory;
-import com.billing.models.Service;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class OrganizationDAO extends CommonDAO<Organization, Integer> {
-    public OrganizationDAO(){
+    public OrganizationDAO() {
         super(Organization.class);
     }
 
-    public Organization findByName(String name){
+    public Organization findByName(String name) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             Organization b = session

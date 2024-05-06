@@ -1,9 +1,7 @@
 package com.billing;
 
-import com.billing.models.Client;
 import com.billing.models.Client2Service;
 import com.billing.models.Client2ServiceId;
-import com.billing.models.Service;
 import com.billing.services.Client2ServiceService;
 import com.billing.services.ClientService;
 import com.billing.services.ServiceService;
@@ -12,15 +10,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Client2ServiceTests {
     private static Client2Service client2Service;
+
     @BeforeAll
-    public static void save(){
+    public static void save() {
         ClientService clientService = new ClientService();
         ServiceService serviceService = new ServiceService();
 
@@ -31,13 +28,13 @@ public class Client2ServiceTests {
     }
 
     @AfterAll
-    public static void delete(){
+    public static void delete() {
         Client2ServiceService service = new Client2ServiceService();
         service.delete(client2Service);
     }
 
     @Test
-    public void test(){
+    public void test() {
         ClientService clientService = new ClientService();
         ServiceService serviceService = new ServiceService();
 
@@ -47,22 +44,24 @@ public class Client2ServiceTests {
     }
 
     @Test
-    public void testFindById(){
+    public void testFindById() {
         Client2ServiceService service = new Client2ServiceService();
         Client2Service client2Service = service.findById(new Client2ServiceId(1, 1));
         Assertions.assertEquals(client2Service.getContract_num(), "1");
         Assertions.assertNotNull(client2Service.getContract_begin());
         Assertions.assertNull(client2Service.getContract_end());
     }
+
     @Test
-    public void testFindAll(){
+    public void testFindAll() {
         Client2ServiceService service = new Client2ServiceService();
         List<Client2Service> client2Service = service.findAll();
 
         Assertions.assertEquals(client2Service.get(0).getContract_num(), "1");
     }
+
     @Test
-    public void testService(){
+    public void testService() {
         Client2ServiceService css = new Client2ServiceService();
         ClientService client = new ClientService();
         ServiceService service = new ServiceService();
@@ -83,6 +82,7 @@ public class Client2ServiceTests {
         cs = css.findById(cs.getId());
         Assertions.assertNull(cs);
     }
+
     @Test
     public void testFilter() {
         Client2ServiceService client2ServiceService = new Client2ServiceService();

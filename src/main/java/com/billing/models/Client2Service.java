@@ -1,6 +1,5 @@
 package com.billing.models;
 
-import com.billing.services.ClientService;
 import jakarta.persistence.*;
 import lombok.*;
 

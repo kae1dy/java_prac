@@ -9,11 +9,11 @@ import java.util.List;
 public abstract class CommonDAO<T, PrimaryKey> {
     private final Class<T> entity;
 
-    public CommonDAO(Class<T> entity){
+    public CommonDAO(Class<T> entity) {
         this.entity = entity;
     }
 
-    public T findById(PrimaryKey id){
+    public T findById(PrimaryKey id) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             T res = session.get(entity, id);
@@ -22,7 +22,7 @@ public abstract class CommonDAO<T, PrimaryKey> {
         }
     }
 
-    public List<T> findAll(){
+    public List<T> findAll() {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             List<T> res = session.createQuery("from " + entity.getSimpleName(), entity).getResultList();
@@ -31,7 +31,7 @@ public abstract class CommonDAO<T, PrimaryKey> {
         }
     }
 
-    public void save(T obj){
+    public void save(T obj) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             try {
@@ -44,7 +44,7 @@ public abstract class CommonDAO<T, PrimaryKey> {
         }
     }
 
-    public void update(T obj){
+    public void update(T obj) {
         try (Session session = HibernateSessionFactory.getSessionFactory().getCurrentSession()) {
             Transaction t = session.beginTransaction();
             try {

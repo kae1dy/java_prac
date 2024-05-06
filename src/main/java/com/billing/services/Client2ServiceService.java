@@ -1,4 +1,3 @@
-
 package com.billing.services;
 
 import com.billing.dao.Client2ServiceDAO;
@@ -8,8 +7,8 @@ import com.billing.models.Client2ServiceId;
 import java.util.Date;
 import java.util.List;
 
-public class Client2ServiceService extends CommonService<Client2Service, Client2ServiceId, Client2ServiceDAO>{
-    public Client2ServiceService(){
+public class Client2ServiceService extends CommonService<Client2Service, Client2ServiceId, Client2ServiceDAO> {
+    public Client2ServiceService() {
         super(new Client2ServiceDAO());
     }
 

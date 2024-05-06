@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.billing.Client2ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-05T17:14:51" hostname="MacBook-Air-Ila.local" time="0.516">
+<testsuite name="com.billing.Client2ServiceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-06T13:41:09" hostname="MacBook-Air-Ila.local" time="0.176">
   <properties/>
-  <testcase name="testFindAll()" classname="com.billing.Client2ServiceTests" time="0.29"/>
-  <testcase name="test()" classname="com.billing.Client2ServiceTests" time="0.01"/>
-  <testcase name="testFindById()" classname="com.billing.Client2ServiceTests" time="0.008"/>
-  <testcase name="testFilter()" classname="com.billing.Client2ServiceTests" time="0.154"/>
-  <testcase name="testService()" classname="com.billing.Client2ServiceTests" time="0.051"/>
-  <system-out><![CDATA[20:14:50.056 [Test worker] INFO org.hibernate.Version -- HHH000412: Hibernate ORM core version 6.4.4.Final
-20:14:50.061 [Test worker] INFO org.hibernate.cfg.Environment -- HHH000205: Loaded properties from resource hibernate.properties: {hibernate.format_sql=true, hibernate.hbm2ddl.auto=update, hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect, hibernate.driver_class=org.postgresql.Driver, hibernate.connection.password=****, hibernate.highlight_sql=true, hibernate.connection.username=postgres, hibernate.connection.url=jdbc:postgresql://localhost:5432/billing, hibernate.show_sql=true, hibernate.current_session_context_class=thread}
-20:14:50.111 [Test worker] INFO org.hibernate.cache.internal.RegionFactoryInitiator -- HHH000026: Second-level cache disabled
-20:14:50.215 [Test worker] WARN org.hibernate.orm.connections.pooling -- HHH10001002: Using built-in connection pool (not intended for production use)
-20:14:50.242 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001005: Loaded JDBC driver class: org.postgresql.Driver
-20:14:50.242 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001012: Connecting with JDBC URL [jdbc:postgresql://localhost:5432/billing]
-20:14:50.242 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001001: Connection properties: {password=****, user=postgres}
-20:14:50.242 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001003: Autocommit mode: false
-20:14:50.244 [Test worker] INFO org.hibernate.orm.connections.pooling -- HHH10001115: Connection pool size: 20 (min=1)
-20:14:50.474 [Test worker] WARN org.hibernate.orm.deprecation -- HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-20:14:51.563 [Test worker] INFO org.hibernate.orm.connections.access -- HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3e98b933] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-?[35m[Hibernate]?[0m 
+  <testcase name="testFindAll()" classname="com.billing.Client2ServiceTests" time="0.01"/>
+  <testcase name="test()" classname="com.billing.Client2ServiceTests" time="0.005"/>
+  <testcase name="testFindById()" classname="com.billing.Client2ServiceTests" time="0.006"/>
+  <testcase name="testFilter()" classname="com.billing.Client2ServiceTests" time="0.12"/>
+  <testcase name="testService()" classname="com.billing.Client2ServiceTests" time="0.034"/>
+  <system-out><![CDATA[?[35m[Hibernate]?[0m 
     ?[34mselect?[0m
         c1_0.client_id,
         a1_0.acc_id,
@@ -89,6 +78,16 @@
             ?[34mon?[0m o1_0.org_id=c1_0.client_org 
     ?[34mwhere?[0m
         c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
 ?[35m[Hibernate]?[0m 
     ?[34mselect?[0m
         s1_0.service_id,
@@ -369,6 +368,16 @@
         s1_0.service_id=?
 ?[35m[Hibernate]?[0m 
     ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
         c1_0.client_id,
         a1_0.acc_id,
         a1_0.acc_balance,
@@ -432,6 +441,16 @@
             ?[34mon?[0m o1_0.org_id=c1_0.client_org 
     ?[34mwhere?[0m
         c1_0.client_id=?
+?[35m[Hibernate]?[0m 
+    ?[34mselect?[0m
+        s1_0.service_id,
+        s1_0.service_name,
+        s1_0.service_package,
+        s1_0.service_tariff 
+    ?[34mfrom?[0m
+        services s1_0 
+    ?[34mwhere?[0m
+        s1_0.service_id=?
 ?[35m[Hibernate]?[0m 
     ?[34mselect?[0m
         s1_0.service_id,

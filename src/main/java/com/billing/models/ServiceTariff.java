@@ -23,7 +23,7 @@ public class ServiceTariff implements Serializable {
     private BigDecimal extra_sms;
     private BigDecimal extra_internet;
 
-    public static List<String> getFields(){
+    public static List<String> getFields() {
         List<String> fields = new ArrayList<>();
         fields.add("tariff");
         fields.add("extra_min");
