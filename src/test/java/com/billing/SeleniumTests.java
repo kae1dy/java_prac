@@ -49,19 +49,6 @@ public class SeleniumTests {
         driver.quit();
     }
 
-//    @Test
-//    public void modelsPage(){
-//        WebDriver driver = new ChromeDriver();
-//        driver.get("http://localhost:8080/models");
-//        WebElement table = driver.findElement(By.id("models_table"));
-//        List<WebElement> thead = table.findElements(By.tagName("th"));
-//        assertEquals(2, thead.size());
-//        assertEquals("Brand", thead.get(0).getText());
-//        assertEquals("Model", thead.get(1).getText());
-//        driver.findElement(By.linkText("Vesta")).click();
-//        driver.quit();
-//    }
-//
     @Test
     public void clients(){
 
